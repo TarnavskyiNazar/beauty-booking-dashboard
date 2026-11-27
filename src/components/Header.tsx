@@ -20,7 +20,7 @@ export default function Header({ onAdd }: HeaderProps) {
             <button
                 type="button"
                 onClick={onAdd}
-                className="flex cursor-pointer items-center gap-2 rounded-lg bg-[#69516c] px-5 py-3 text-sm font-medium text-white transition-colors hover:bg-[#57405a]"
+                className="flex cursor-pointer items-center gap-2 rounded-lg bg-[#69516c] px-5 py-3 text-sm font-medium text-white transition-colors hover:bg-[#57405a] w-full justify-center sm:w-auto"
             >
                 <Plus size={20} />
                 Neuer Termin

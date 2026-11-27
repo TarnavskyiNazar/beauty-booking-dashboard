@@ -6,6 +6,13 @@ von Terminen in Beauty-Studios.
 Dieses Projekt wurde als eigenständiges Lern- und
 Portfolio-Projekt entwickelt, um praktische Erfahrungen
 mit Next.js, TypeScript und Firebase zu sammeln.
+## Live Demo
+
+https://beauty-booking-dashboard.vercel.app/
+
+Die Anwendung kann direkt im Browser getestet werden.
+Eine kostenlose Registrierung ist möglich.
+Bitte ausschließlich fiktive Kundendaten verwenden.
 
 ## Funktionen
 

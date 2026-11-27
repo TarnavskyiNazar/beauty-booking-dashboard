@@ -63,10 +63,9 @@ export default function StatsOverview({
     ];
 
     return (
-        <section className="grid grid-cols-1 gap-6 sm:grid-cols-2 xl:grid-cols-4">
-            {stats.map((stat) => (
-                <StatCard key={stat.title} {...stat} />
-            ))}
+        <section className="grid grid-cols-1 gap-3 min-[400px]:grid-cols-2 sm:gap-6 xl:grid-cols-4">            {stats.map((stat) => (
+            <StatCard key={stat.title} {...stat} />
+        ))}
         </section>
     );
 }

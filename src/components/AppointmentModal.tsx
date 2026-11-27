@@ -11,6 +11,7 @@ interface AppointmentModalProps {
     appointment?: Appointment,
     onClose: () => void;
     onSave: (appointment: Appointment) => void;
+    saving: boolean
 }
 
 const inputClass =
@@ -20,6 +21,7 @@ export default function AppointmentModal({
     appointment,
     onClose,
     onSave,
+    saving
 }: AppointmentModalProps) {
     const isEditing = Boolean(appointment);
 
@@ -49,7 +51,7 @@ export default function AppointmentModal({
 
     const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
         event.preventDefault();
-
+        if (saving) return;
         if (!customerName.trim() || !service || !date || !time) {
             return;
         }
@@ -224,12 +226,15 @@ export default function AppointmentModal({
                         </button>
 
                         <button
+                            disabled={saving}
                             type="submit"
                             className="cursor-pointer rounded-lg bg-[#69516c] px-5 py-3 text-sm font-medium text-white hover:bg-[#57405a]"
                         >
-                            {isEditing
-                                ? "Änderungen speichern"
-                                : "Termin speichern"}                        </button>
+                            {saving
+                                ? "Wird gespeichert..."
+                                : isEditing
+                                    ? "Änderungen speichern"
+                                    : "Termin speichern"}                      </button>
                     </div>
                 </form>
             </div>

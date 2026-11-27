@@ -1,36 +1,150 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Beauty Booking Dashboard
 
-## Getting Started
+Ein modernes, responsives Dashboard zur Verwaltung
+von Terminen in Beauty-Studios.
 
-First, run the development server:
+Dieses Projekt wurde als eigenständiges Lern- und
+Portfolio-Projekt entwickelt, um praktische Erfahrungen
+mit Next.js, TypeScript und Firebase zu sammeln.
+
+## Funktionen
+
+- Registrierung und Anmeldung mit E-Mail und Passwort
+- Benutzerbezogene Terminverwaltung
+- Termine erstellen, anzeigen, bearbeiten und löschen
+- Suche nach Kunden und Dienstleistungen
+- Filterung nach Terminstatus
+- Sortierung nach Datum, Uhrzeit und Preis
+- Dynamische Dashboard-Statistiken
+- Echtzeit-Datenaktualisierung mit Cloud Firestore
+- Zugriffsschutz durch Firestore Security Rules
+- Responsive Design für Desktop, Tablet und Smartphone
+- Ladezustände und Fehlerbehandlung
+
+## Technologien
+
+| Technologie | Verwendung |
+|---|---|
+| Next.js | React-Framework mit App Router |
+| React | Komponenten und Zustandsverwaltung |
+| TypeScript | Typsicherheit |
+| Tailwind CSS | Styling und Responsive Design |
+| Firebase Authentication | Benutzeranmeldung |
+| Cloud Firestore | NoSQL-Datenbank |
+| Lucide React | Icons |
+| ESLint | Codequalität |
+| Git & GitHub | Versionsverwaltung |
+
+## Projektstruktur
+
+```text
+src/
+├── app/
+│   ├── globals.css
+│   ├── icon.svg
+│   ├── layout.tsx
+│   └── page.tsx
+├── components/
+│   ├── AppointmentFilters.tsx
+│   ├── AppointmentModal.tsx
+│   ├── AppointmentTable.tsx
+│   ├── AuthForm.tsx
+│   ├── Header.tsx
+│   ├── Sidebar.tsx
+│   ├── StatCard.tsx
+│   ├── StatsOverview.tsx
+│   └── StatusBadge.tsx
+├── data/
+│   └── appointments.ts
+├── hooks/
+│   └── useAuth.ts
+├── lib/
+│   ├── appointments.ts
+│   └── firebase.ts
+└── types/
+    └── appointment.ts
+```
+
+## Lokale Installation
+
+Repository klonen:
+
+```bash
+git clone https://github.com/TarnavskyiNazar/beauty-booking-dashboard.git
+cd beauty-booking-dashboard
+npm install
+```
+
+Eine Datei `.env.local` im Hauptverzeichnis erstellen:
+
+```env
+NEXT_PUBLIC_FIREBASE_API_KEY=
+NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN=
+NEXT_PUBLIC_FIREBASE_PROJECT_ID=
+NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET=
+NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID=
+NEXT_PUBLIC_FIREBASE_APP_ID=
+```
+
+Ein eigenes Firebase-Projekt erstellen, Email/Password
+Authentication aktivieren, Cloud Firestore einrichten
+und benutzerbezogene Security Rules konfigurieren.
+
+Entwicklungsserver starten:
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Anwendung öffnen:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+http://localhost:3000
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Codequalität
 
-## Learn More
+```bash
+npx eslint .
+npx tsc --noEmit
+npm run build
+```
 
-To learn more about Next.js, take a look at the following resources:
+## Sicherheit
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Jeder angemeldete Benutzer kann ausschließlich auf
+seine eigenen Termine zugreifen.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Die Daten werden unter folgendem Pfad gespeichert:
 
-## Deploy on Vercel
+```text
+users/{userId}/appointments/{appointmentId}
+```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Das Projekt ist ein Lernprojekt und verwendet
+ausschließlich fiktive Kundendaten.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Lernziele
+
+- Entwicklung einer modernen Webanwendung mit Next.js
+- Wiederverwendbare React-Komponenten
+- TypeScript und typisierte Datenmodelle
+- CRUD-Operationen mit einer Cloud-Datenbank
+- Authentifizierung und Autorisierung
+- Asynchrone Programmierung
+- Echtzeit-Datenverarbeitung
+- Strukturierte Projektarchitektur
+- Responsive Webentwicklung
+
+## Geplante Erweiterungen
+
+- Kalenderansicht
+- Separate Kundenverwaltung
+- Verwaltung von Dienstleistungen
+- Passwort zurücksetzen
+- Erweiterte Datenvalidierung
+- Automatisierte Tests
+
+## Autor
+
+Nazar Tarnavskyi
+
+GitHub: https://github.com/TarnavskyiNazar

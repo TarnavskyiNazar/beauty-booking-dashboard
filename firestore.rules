@@ -1,0 +1,44 @@
+rules_version = '2';
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    function isOwner(userId) {
+      return request.auth != null
+        && request.auth.uid == userId;
+    }
+
+    function validAppointment(data) {
+      return data.keys().hasAll([
+        'customerName',
+        'service',
+        'date',
+        'time',
+        'price',
+        'status'
+      ])
+      && data.keys().hasOnly([
+        'customerName',
+        'service',
+        'date',
+        'time',
+        'price',
+        'status'
+      ])
+      && data.price >= 0
+      && data.price <= 100000
+      && data.status in [
+        'Bestätigt',
+        'Offen',
+        'Storniert'
+      ];
+    }
+
+    match /users/{userId}/appointments/{appointmentId} {
+      allow read, delete: if isOwner(userId);
+
+      allow create, update: if isOwner(userId)
+        && validAppointment(request.resource.data);
+    }
+  }
+}
